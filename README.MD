@@ -1,11 +1,11 @@
-<p align="center"><img src="./docs/icon.png" width="64" style="position:relative;top:5px" /></p>
+<div align="center"><img src="./docs/icon.png" width="64" style="position:relative;top:5px" /></div>
 
-# <p align="center"> X Smart Search</p>
+# <div align="center">X Smart Search</div>
 
 This is a Chrome Extension made to improve search experience on 𝕏. 
 It uses LLM to parse search input and suggest advanced search filters based on it.
 
-<img src="./docs/hero.png" width="450" />
+<div align="center"><img src="./docs/hero.png" width="450" /></div>
 
 ## Installation instructions
 ### Chrome Web Store
