@@ -1,4 +1,6 @@
-# <img src="./docs/icon.png" width="32" style="position:relative;top:5px" /> X Smart Search
+<p align="center"><img src="./docs/icon.png" width="64" style="position:relative;top:5px" /></p>
+
+# <p align="center"> X Smart Search</p>
 
 This is a Chrome Extension made to improve search experience on 𝕏. 
 It uses LLM to parse search input and suggest advanced search filters based on it.
