@@ -29,8 +29,6 @@ export class LLMClient {
             throw new Error('No token found');
         }
 
-        console.log('>>>prompt', prompt)
-
         const completion = await groq.chat.completions.create({
             messages: [
                 {

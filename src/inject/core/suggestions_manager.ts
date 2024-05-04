@@ -14,13 +14,7 @@ class SuggestionsManager {
                 input_id: inputId,
                 text: text
             });
-        }, 300);
-
-        chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-            if (message.type === "suggestion") {
-                this.updateSuggestion(message.input_id, message.suggestion);
-            }
-        });
+        }, 500);
     }
 
     onInputUpdated(inputEl: HTMLInputElement) {

@@ -1,19 +1,24 @@
 import { focusEventListener } from "./core/focus_event_listener";
 import { injetCSS } from "./core/inject_css";
 import { inputEventListener } from "./core/input_event_listener";
+import { suggestionsManager } from "./core/suggestions_manager";
 import { createObserver } from "./util/create_observer"
+
+document.addEventListener('DOMContentLoaded', () => {
+    injetCSS();
+})
 
 const inputObserver = createObserver("input[data-testid='SearchBox_Search_Input']", (el) => {
     const input = el as HTMLInputElement;
 
     input.addEventListener('focus', focusEventListener);
     input.addEventListener('input', inputEventListener);
-
-    input.style.backgroundColor = "red";
-}, (el) => {});
+}, () => {});
 
 inputObserver.observe(document, { subtree: true, childList: true });
 
-document.addEventListener('DOMContentLoaded', () => {
-    injetCSS();
-})
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.type === "suggestion") {
+        suggestionsManager.updateSuggestion(message.input_id, message.suggestion);
+    }
+});
