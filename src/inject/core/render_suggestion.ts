@@ -3,6 +3,7 @@ const searchIconUrl = chrome.runtime.getURL('assets/icons/search_icon.svg');
 const LABEL_ID = 'extensionSmartSearchLabel';
 
 export const renderSuggestion = (container: HTMLDivElement, text: string) => {
+    container.style.display = 'block';
     const label = container.querySelector(`#${LABEL_ID}`) as HTMLSpanElement | null;
 
     if (label) {

@@ -13,6 +13,7 @@ export const getContainer = (inputEl: HTMLInputElement): HTMLDivElement | undefi
 
     if (!container) {
         container = document.createElement('div');
+        container.setAttribute('data-id', 'container_' + Math.random().toString(36).substring(2));
         container.id = INJECT_CONTAINER_ID;
     }
 
