@@ -1,9 +1,17 @@
-export const injetCSS = () => {
+import { isDarkColor } from "../util/is_dark_color";
+import { LABEL_ID, LINK_CLASS } from "./render_suggestion";
+
+export const injectCSS = () => {
+    const backgroundColor = document.body.style.backgroundColor;
+    const isDarkMode = isDarkColor(backgroundColor);
+
     const styles = document.createElement('style');
     styles.innerHTML = `
-        .extensionSmartSearchMenuItem {
+        .${LINK_CLASS} {
             width: 100%;
+            text-decoration: none;
             max-width: 100%;
+            color: inherit;
             box-sizing: border-box;
             padding: 14px 16px 16px 16px;
             line-height: 20px;
@@ -12,12 +20,12 @@ export const injetCSS = () => {
             align-items: flex-start;
             font-family: 'TwitterChirp', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-size: 15px;
-            border-bottom: 1px solid rgb(239, 243, 244);
+            border-bottom: 1px solid rgba(150, 150, 150, 0.05);
             position: relative;
             cursor: pointer;
         }
-        .extensionSmartSearchMenuItem:hover {
-            background-color: rgb(247, 249, 249);
+        .${LINK_CLASS}:hover {
+            background-color: rgba(150, 150, 150, 0.05);
         }
         .extensionSmartSearchIcon {
             position: relative;
@@ -32,12 +40,30 @@ export const injetCSS = () => {
             overflow-x: auto;
             overflow-y: hidden;
         }
-
         .extensionSmartSearchMenuItemHint {
             line-height: 11px;
             margin-top: 4px;
             color: gray;
             font-size: 11px;
+        }
+
+        #${LABEL_ID} {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 3px;
+            column-gap: 4px;
+        }
+    
+        .extensionSmartSearchTag {
+            background-color: ${isDarkMode ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'};
+            color: ${isDarkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)'};
+            font-size: 12px;
+            padding: 0 6px;
+            border-radius: 4px;
+        }
+
+        .extensionSmartSearchTagValue {
+            color: ${isDarkMode ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)'};
         }
     `
 

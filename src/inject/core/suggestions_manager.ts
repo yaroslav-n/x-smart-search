@@ -2,7 +2,7 @@ import { debounce } from "../../generic/debounce";
 import { INPUT_ID_ATTRIBUTE } from "./focus_event_listener";
 import { getContainer } from "./get_container";
 import { hideSuggestion } from "./hide_suggestion";
-import { LABEL_ID, renderSuggestion } from "./render_suggestion";
+import { LINK_CLASS, renderSuggestion } from "./render_suggestion";
 
 class SuggestionsManager {
     private _requestSuggestion: (inputId: string, text: string) => void = () => {}
@@ -22,7 +22,7 @@ class SuggestionsManager {
         const inputId = inputEl.getAttribute(INPUT_ID_ATTRIBUTE);
         
 
-        if (inputText && inputId) {
+        if (inputText && inputId && inputText.length > 5) {
             this._requestSuggestion(inputId, inputText)
         }
     }
@@ -41,7 +41,7 @@ class SuggestionsManager {
 
         const inputText = inputEl.value;
         
-        if (!inputText.startsWith(suggestion)) {
+        if (!inputText.toLowerCase().startsWith(suggestion.toLowerCase())) {
             renderSuggestion(container, suggestion);
         } else {
             hideSuggestion(container);
@@ -56,16 +56,13 @@ class SuggestionsManager {
         }
 
         const container = getContainer(inputEl);
-        const text = container?.querySelector(`#${LABEL_ID}`)?.textContent;
+        const linkEl = container?.querySelector(`.${LINK_CLASS}`) as HTMLLinkElement | null;
 
-        if (text) {
-            window.location.href = `https://twitter.com/search?q=${encodeURIComponent(text)}&src=smart_search_extension&f=top`;
+        if (linkEl) {
+            linkEl.click();
         }
     }
 
-    searchText(text: string) {
-        window.location.href = `https://twitter.com/search?q=${encodeURIComponent(text)}&src=smart_search_extension&f=top`;
-    }
 }
 
 

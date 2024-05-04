@@ -36,6 +36,7 @@ export class LLMClient {
                     content: prompt
                 }
             ],
+            temperature: 0,
             model: "llama3-70b-8192"
         });
         

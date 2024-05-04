@@ -1,11 +1,11 @@
 import { focusEventListener } from "./core/focus_event_listener";
-import { injetCSS } from "./core/inject_css";
+import { injectCSS } from "./core/inject_css";
 import { inputEventListener } from "./core/input_event_listener";
 import { suggestionsManager } from "./core/suggestions_manager";
 import { createObserver } from "./util/create_observer"
 
 document.addEventListener('DOMContentLoaded', () => {
-    injetCSS();
+    injectCSS();
 })
 
 const inputObserver = createObserver("input[data-testid='SearchBox_Search_Input']", (el) => {
