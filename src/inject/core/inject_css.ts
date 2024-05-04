@@ -25,7 +25,7 @@ export const injectCSS = () => {
             cursor: pointer;
         }
         .${LINK_CLASS}:hover {
-            background-color: rgba(150, 150, 150, 0.05);
+            background-color: ${isDarkMode ? 'rgba(150, 150, 150, 0.05)' : 'rgb(247, 249, 249)'};
         }
         .extensionSmartSearchIcon {
             position: relative;
