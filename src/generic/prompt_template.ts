@@ -3,7 +3,7 @@ Today is ${new Date().toDateString()}.
 You need to convert user search query into another format that twitter understands.
 
 Use these content operators
-near:place - tweets near a specific location/city/country. Example: near:London
+near:place - tweets near a specific location/city/country. If a city has space in it's name, use underscore. Example: near:New_York
 within:distance - tweets posted within a certain distance of a location, use with near:place . Example: near:Seattle within:10km
 url:example.com - tweets containing url with a specific word. Example: url:amazon
 from:user –	sent by a particular @username
