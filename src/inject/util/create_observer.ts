@@ -4,10 +4,11 @@ type ElementObserver = (
     onElementRemoved: (el: Element) => void
 ) => MutationObserver;
 
+// This function creates a MutationObserver that watches for elements being added or removed from the DOM.
 export const createObserver: ElementObserver = (selector, onElementAdded, onElementRemoved) => {
     return new MutationObserver((mutations_list) => {
         mutations_list.forEach((mutation) => {
-            const addedNodes = mutation.addedNodes as unknown as HTMLElement[]; // wrong typings
+            const addedNodes = mutation.addedNodes as unknown as HTMLElement[];
             addedNodes.forEach((added_node) => {
                 const elements = added_node.querySelectorAll?.(selector) ?? [];
 

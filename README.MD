@@ -5,8 +5,6 @@
 This is a Chrome Extension made to improve search experience on 𝕏. 
 It uses LLM to parse search input and suggest advanced search filters based on it.
 
-<div align="center"><img src="./docs/hero.png" width="450" /></div>
-
 ## Installation instructions
 ### Chrome Web Store
 - To be added
