@@ -2,7 +2,7 @@ import { debounce } from "../../generic/debounce";
 import { INPUT_ID_ATTRIBUTE } from "./focus_event_listener";
 import { getContainer } from "./get_container";
 import { hideSuggestion } from "./hide_suggestion";
-import { renderSuggestion } from "./render_suggestion";
+import { LABEL_ID, renderSuggestion } from "./render_suggestion";
 
 class SuggestionsManager {
     private _requestSuggestion: (inputId: string, text: string) => void = () => {}
@@ -27,8 +27,8 @@ class SuggestionsManager {
         }
     }
 
-    updateSuggestion(input_id: string, suggestion: string) {
-        const inputEl = document.querySelector(`input[${INPUT_ID_ATTRIBUTE}="${input_id}"]`) as HTMLInputElement | null;
+    updateSuggestion(inputId: string, suggestion: string) {
+        const inputEl = document.querySelector(`input[${INPUT_ID_ATTRIBUTE}="${inputId}"]`) as HTMLInputElement | null;
 
         if (!inputEl) {
             return
@@ -46,6 +46,25 @@ class SuggestionsManager {
         } else {
             hideSuggestion(container);
         }
+    }
+
+    searchByInputId(inputId: string) {
+        const inputEl = document.querySelector(`input[${INPUT_ID_ATTRIBUTE}="${inputId}"]`) as HTMLInputElement | null;
+
+        if (!inputEl) {
+            return
+        }
+
+        const container = getContainer(inputEl);
+        const text = container?.querySelector(`#${LABEL_ID}`)?.textContent;
+
+        if (text) {
+            window.location.href = `https://twitter.com/search?q=${encodeURIComponent(text)}&src=smart_search_extension&f=top`;
+        }
+    }
+
+    searchText(text: string) {
+        window.location.href = `https://twitter.com/search?q=${encodeURIComponent(text)}&src=smart_search_extension&f=top`;
     }
 }
 

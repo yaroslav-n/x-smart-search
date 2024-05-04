@@ -18,7 +18,7 @@ export class LLMClient {
         await getChrome().storage.sync.set({ [LLM_TOKEN_KEY]: token });
     }
 
-    public static async convertText(prompt: string): Promise<string> {
+    public static async convertText(prompt: string): Promise<string | undefined> {
         const token = await LLMClient.getToken();
         const groq = new Groq({
             dangerouslyAllowBrowser: true,
@@ -39,7 +39,6 @@ export class LLMClient {
             model: "llama3-70b-8192"
         });
         
-
-        return completion.choices[0]?.message?.content ?? undefined
+        return completion.choices[0]?.message?.content ?? undefined;
     }
 }

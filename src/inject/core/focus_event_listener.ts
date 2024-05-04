@@ -23,10 +23,23 @@ export const focusEventListener = (e: FocusEvent) => {
 
     formObserver.observe(form, { subtree: true, childList: true });
 
+    // on Ctrl + Enter, search for the suggestion
+    const onCtrlEnter = (e: KeyboardEvent) => {
+        if(e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+            const id = inputEl?.getAttribute(INPUT_ID_ATTRIBUTE);
+
+            if (id) {
+                suggestionsManager.searchByInputId(id);
+            }
+        }
+    }
+    document.body.addEventListener('keydown', onCtrlEnter);
+
     // cleaning up
-    const onBlur = (e: FocusEvent) => {
+    const onBlur = () => {
         formObserver.disconnect();
         inputEl.removeEventListener('blur', onBlur);
+        document.body.removeEventListener('keydown', onCtrlEnter);
     }
 
     inputEl.addEventListener('blur', onBlur);

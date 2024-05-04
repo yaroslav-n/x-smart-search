@@ -22,7 +22,7 @@ export const Settings: FC<{}> = () => {
 
     const onSubmitPrompt = useCallback(() => {
         const prompt = promptTemplate(input);
-        LLMClient.convertText(prompt).then(setResult)
+        LLMClient.convertText(prompt).then((result) => setResult(result ?? ""))
     }, [input])
 
     return (
