@@ -8,12 +8,12 @@ export const LINK_CLASS = 'extensionSmartSearchMenuItem';
 
 const hotkey = navigator.userAgent.indexOf('Mac OS X') != -1 ? '⌘ + ⏎' : 'Ctrl + ⏎';
 
-export const renderSuggestion = (container: HTMLDivElement, text: string) => {
+export const renderSuggestion = (container: HTMLDivElement, text: string, linkUrl?: string) => {
     container.style.display = 'block';
     const labelContainer = container.querySelector(`#${LABEL_ID}`) as HTMLSpanElement | null;
     const { text: labelText, html } = renderLabel(text);
     
-    const url = `https://twitter.com/search?q=${encodeURIComponent(labelText)}&src=smart_search_extension&f=top`;
+    const url = linkUrl ?? `https://twitter.com/search?q=${encodeURIComponent(labelText)}&src=smart_search_extension&f=top`;
 
     if (labelContainer) {
         const link = container.querySelector(`.${LINK_CLASS}`) as HTMLAnchorElement;

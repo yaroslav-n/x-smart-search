@@ -20,5 +20,7 @@ inputObserver.observe(document, { subtree: true, childList: true });
 chrome.runtime.onMessage.addListener((message) => {
     if (message.type === "suggestion") {
         suggestionsManager.updateSuggestion(message.input_id, message.suggestion);
+    } else if (message.type === "error") {
+        suggestionsManager.setError(message.input_id, message.error);
     }
 });

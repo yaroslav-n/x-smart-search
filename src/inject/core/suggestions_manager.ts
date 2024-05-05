@@ -48,6 +48,21 @@ class SuggestionsManager {
         }
     }
 
+    setError(inputId: string, error: string) {
+        const inputEl = document.querySelector(`input[${INPUT_ID_ATTRIBUTE}="${inputId}"]`) as HTMLInputElement | null;
+
+        if (!inputEl) {
+            return
+        }
+
+        const container = getContainer(inputEl);
+        if (!container) {
+            return;
+        }
+
+        renderSuggestion(container, error, chrome.runtime.getURL('assets/settings.html'));
+    }
+
     searchByInputId(inputId: string) {
         const inputEl = document.querySelector(`input[${INPUT_ID_ATTRIBUTE}="${inputId}"]`) as HTMLInputElement | null;
 
