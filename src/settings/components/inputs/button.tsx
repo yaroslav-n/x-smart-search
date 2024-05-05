@@ -53,6 +53,7 @@ const ButtonEl = styled.button<ButtonElProps>`
     align-items: center;
     height: ${({ size }) => (size === "large" ? "40px" : "27px")};
     width: 100%;
+    white-space: nowrap;
     cursor: pointer;
     padding: ${({ size }) => (size === "large" ? "8px 16px" : "6px 12px")};
     box-sizing: border-box;
