@@ -7,7 +7,7 @@ It uses LLM to parse search input and suggest advanced search filters based on i
 
 ## Installation instructions
 ### Chrome Web Store
-- To be added
+- [https://chromewebstore.google.com/detail/x-smart-search/cmcanfbalenfdghfhiomaodgdbjmcino](https://chromewebstore.google.com/detail/x-smart-search/cmcanfbalenfdghfhiomaodgdbjmcino)
 
 ### Manual installation
 - Download this repo as a ZIP file.

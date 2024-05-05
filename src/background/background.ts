@@ -24,8 +24,6 @@ type Message = {
 
 // receive messages
 chrome.runtime.onMessage.addListener((message : Message, sender) => {
-    console.log(">>> background: received message", message);
-
     switch (message.type) {
         case "request_suggestion":
             if (sender.tab?.id) {
