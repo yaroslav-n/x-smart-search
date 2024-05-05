@@ -102,7 +102,7 @@ export const Settings: FC<{}> = () => {
                         <Title>Why Groq</Title>
                         <Space height={15} />
                         <Text>
-                            Groq is an AI Platform, much like OpenAI. The main difference is that Groq returns results much faster, which is handy when we need to return search suggestions in near real-time.
+                            Groq is an AI Platform, much like OpenAI. The main difference is that Groq returns results much faster, which is handy when we need to return search suggestions in near real-time. You can read about them on <a href="https://en.wikipedia.org/wiki/Groq">Wikipedia</a>.
                         </Text>
                     </Block>
                     <Block>
