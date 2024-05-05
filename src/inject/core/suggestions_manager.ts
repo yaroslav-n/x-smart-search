@@ -20,8 +20,6 @@ class SuggestionsManager {
     onInputUpdated(inputEl: HTMLInputElement) {
         const inputText = inputEl.value;
         const inputId = inputEl.getAttribute(INPUT_ID_ATTRIBUTE);
-        
-
         if (inputText && inputId && inputText.length > 5) {
             this._requestSuggestion(inputId, inputText)
         }

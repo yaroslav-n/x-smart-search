@@ -57,7 +57,7 @@ export const Settings: FC<{}> = () => {
                         </Text>
                     </Block>
                     <Block>
-                        <Title>Recognized filters.</Title>
+                        <Title>Recognized filters</Title>
                         <Space height={15} />
                         <Text>
                             <ul style={{ marginBlockStart: 0, paddingInlineStart: 15, lineHeight: '20px' }}>

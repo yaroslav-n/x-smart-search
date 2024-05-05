@@ -2,9 +2,7 @@ import { sendSuggestions } from "./send_suggestions";
 
 // open settings on icon click
 chrome.action.onClicked.addListener(async () => {
-    chrome.tabs.create({
-        url: chrome.runtime.getURL("assets/settings.html"),
-    });
+    chrome.runtime.openOptionsPage();
 });
 
 // register content scripts
