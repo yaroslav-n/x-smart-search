@@ -1,0 +1,17 @@
+export const Colors = {
+    white: "#FFFFFF",
+    whiteSemi: "rgba(255,255,255, 0.5)",
+    mainBlue: "#1C8DFF",
+    darkerBlue: "#0C7AEA",
+    veryBlue: "#007FFF",
+    veryDark: "#324F6B",
+    veryGrey: "#6B7785",
+    prettyGrey: "#C0C2C3",
+    typicalGrey: "#D5D6D7",
+    somewhatGrey: "#E7EBEF",
+    typicalGreySemi: "rgba(213,214,215, 0.3)",
+    typicalGreySemi2: "rgba(213,214,215, 0.5)",
+    somewhatBlue: "#DCE6F0",
+    slightlyGrey: "rgba(107,119,133, 0.05)",
+    slightlyBlue: "#F8FBFE",
+};
