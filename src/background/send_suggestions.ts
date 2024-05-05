@@ -2,7 +2,6 @@ import { LLMClient } from "../generic/llm_client";
 import { promptTemplate } from "../generic/prompt_template";
 
 export const sendSuggestions = async (tabId: number, inputId: string, text: string) => {
-    console.log('hahaha');
     if (!(await LLMClient.getToken())) {
         chrome.tabs.sendMessage(tabId, {
             type: "error",
