@@ -1,4 +1,5 @@
-import { isDarkColor } from "../util/is_dark_color";
+import { injectCSS } from "./inject_css";
+import { isDarkMode } from "./is_dark_mode";
 
 const searchIconUrlBlack = chrome.runtime.getURL('assets/icons/search_icon_black.svg');
 const searchIconUrlWhite = chrome.runtime.getURL('assets/icons/search_icon_white.svg');
@@ -9,6 +10,7 @@ export const LINK_CLASS = 'extensionSmartSearchMenuItem';
 const hotkey = navigator.userAgent.indexOf('Mac OS X') != -1 ? '⌘ + ⏎' : 'Ctrl + ⏎';
 
 export const renderSuggestion = (container: HTMLDivElement, text: string, linkUrl?: string) => {
+    injectCSS(); // injecting each time, because dark theme sometimes changes dynamically
     container.style.display = 'block';
     const labelContainer = container.querySelector(`#${LABEL_ID}`) as HTMLSpanElement | null;
     const { text: labelText, html } = renderLabel(text);
@@ -20,9 +22,7 @@ export const renderSuggestion = (container: HTMLDivElement, text: string, linkUr
         link.setAttribute('href', url);
         labelContainer.innerHTML = html;
     } else {
-        const backgroundColor = document.body.style.backgroundColor;
-        const isDarkMode = isDarkColor(backgroundColor);
-        const searchIconUrl = isDarkMode ? searchIconUrlWhite : searchIconUrlBlack;
+        const searchIconUrl = isDarkMode() ? searchIconUrlWhite : searchIconUrlBlack;
 
         container.innerHTML = `
             <a class="${LINK_CLASS}" href="${url}">

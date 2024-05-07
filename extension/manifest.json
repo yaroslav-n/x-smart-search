@@ -1,7 +1,7 @@
 {
     "name": "X Smart Search",
     "manifest_version": 3,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Use plain English to apply advanced search filters on X",
     "options_page": "assets/settings.html",
     "action": {},
