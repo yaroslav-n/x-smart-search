@@ -39,7 +39,6 @@ let lastQuery = '';
 
 /**
  * Save request headers from other API requests, for future use
- * We don't use setTimeout(0) here, because setRequestHeader is called in the current task, otherwise it will be too late
  */
 const ogOpen = XMLHttpRequest.prototype.open;
 XMLHttpRequest.prototype.open = function (...args: any[]) {
