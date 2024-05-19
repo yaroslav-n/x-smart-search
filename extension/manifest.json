@@ -2,7 +2,7 @@
   "name": "X Smart Search",
   "manifest_version": 3,
   "version": "1.5.0",
-  "description": "Use plain English to apply advanced search filters on X",
+  "description": "AI Improvements for X search",
   "options_page": "assets/settings.html",
   "action": {},
   "permissions": [
