@@ -4,6 +4,7 @@ module.exports = {
   mode: "production",
   entry: {
     inject: "./src/inject/inject.ts",
+    inject_main: "./src/inject_main/inject_main.ts",
     background: "./src/background/background.ts",
     settings: "./src/settings/index.tsx",
   },

@@ -10,8 +10,18 @@ chrome.scripting.registerContentScripts([
     {
         id: `typebar_isolated_context_inject_${Math.random()}`,
         world: "ISOLATED",
-        matches: ["https://twitter.com/*", "https://x.com/*"],
+        matches: ["https://x.com/*"],
         js: ["lib/inject.js"],
+        runAt: "document_start",
+    },
+]);
+
+chrome.scripting.registerContentScripts([
+    {
+        id: `typebar_isolated_context_inject_${Math.random()}`,
+        world: "MAIN",
+        matches: ["https://x.com/*"],
+        js: ["lib/inject_main.js"],
         runAt: "document_start",
     },
 ]);
